@@ -19,5 +19,11 @@ INSERT INTO players VALUES (6, 'Smalls', 'Elliot', 'OLB', 33, 215, 69, 'February
 ALTER TABLE players ALTER COLUMN Position SET NOT NULL;
 ALTER TABLE players ALTER COLUMN Jersey_Number SET NOT NULL;
 
-ALTER TABLE players ALTER COLUMN Jersey_Number CHECK (Jersey_Number > 0 AND Jersey_Number < 100);
+ALTER TABLE players ADD CONSTRAINT Jersey_Number UNIQUE;
 
+ALTER TABLE players ALTER COLUMN Jersey_Number ADD CHECK(Jersey_Number > 0 AND Jersey_Number < 100);
+
+ALTER TABLE players ALTER COLUMN Position SET DEFAULT 'ATH';
+
+INSERT INTO players VALUES (7, 'Jamison', 'Zion', 'ATH', 12, 285, 80, 'October 25, 2000');
+INSERT INTO players VALUES (8, 'Johnson', 'Craig', 'P', 17, 173, 72, 'November 25, 1999');
